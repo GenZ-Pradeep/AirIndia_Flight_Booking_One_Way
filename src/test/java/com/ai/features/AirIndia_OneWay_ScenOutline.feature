@@ -1,3 +1,4 @@
+#Feature file with Scenario Outline configuration
 Feature: Book a one way flight on AirIndia.com
 
   Scenario Outline: The user books a one-way flight
