@@ -13,25 +13,30 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                echo 'Checkout'
                 checkout scm
             }
         }
 
         stage('Install Playwright Browsers') {
             steps {
-                sh 'mvn exec:java -e -Dexec.mainClass="com.microsoft.playwright.CLI" -Dexec.args="install"'
+            //sh ia used for Linux/Unix, bat is used for windows
+            echo 'Install Playwright Browsers'
+                bat 'mvn exec:java -e -Dexec.mainClass="com.microsoft.playwright.CLI" -Dexec.args="install"'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                echo 'Build'
+                bat 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                echo 'Test'
+                bat 'mvn test'
             }
         }
     }
