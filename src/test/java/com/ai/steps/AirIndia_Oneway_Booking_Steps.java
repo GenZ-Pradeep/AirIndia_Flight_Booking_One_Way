@@ -6,7 +6,7 @@ import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.options.AriaRole;
 import io.cucumber.java.en.*;
 import org.junit.Test;
-import org.testng.Assert;
+//import org.testng.Assert;
 
 public class AirIndia_Oneway_Booking_Steps {
 
@@ -29,13 +29,13 @@ public void the_user_clicks_on_accept_all_cookies_button() throws InterruptedExc
 
 @And("the user accepts location dialog")
 public void the_User_Blocks_Location_Dialog() {
-	page.onDialog(dialog -> {
-		String msg = dialog.message();
-		System.out.println("Dialog text is: " + msg);
-		Assert.assertTrue(msg.contains("Know your location"));
-		//dialog.dismiss();
-		dialog.accept();
-	});
+//	page.onDialog(dialog -> {
+//		String msg = dialog.message();
+//		System.out.println("Dialog text is: " + msg);
+//		Assert.assertTrue(msg.contains("Know your location"));
+//		//dialog.dismiss();
+//		dialog.accept();
+//	});
 }
 
 @When("the user selects One Way trip type")

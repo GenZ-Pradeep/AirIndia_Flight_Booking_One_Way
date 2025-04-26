@@ -16,6 +16,6 @@ import io.cucumber.junit.Cucumber;
 		//tags="@smokeTest"
 
 )
-public class testRunnerAIOWB {
+public class TestRunnerAIOWB {
 
 }

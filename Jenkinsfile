@@ -36,7 +36,7 @@ pipeline {
         stage('Run Specific Test') {
             steps {
                 echo 'Run Specific Test'
-                bat 'mvn clean test -Dtest=com.ai.steps.testRunnerAIOWB'
+                bat 'mvn clean test -Dtest=com.ai.steps.TestRunnerAIOWB'
 
             }
         }
