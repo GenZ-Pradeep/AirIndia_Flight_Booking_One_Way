@@ -36,9 +36,9 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test'
-                bat 'mvn test'
-                 bat 'make check || true'
-                 junit '**/target/*.xml'
+                //bat 'mvn test'
+                //junit '**/target/*.xml'
+                bat "mvn install -Dtest=JunitRunner -Denv='${ENVIRONMENT}' -Dtestplan='${TestPlan}' -Dcucumber.options='${CucumberTag}'"
             }
         }
     }
