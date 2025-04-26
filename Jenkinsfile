@@ -22,23 +22,23 @@ pipeline {
             steps {
             //sh ia used for Linux/Unix, bat is used for windows
             echo 'Install Playwright Browsers'
-                bat 'mvn exec:java -e -Dexec.mainClass="com.microsoft.playwright.CLI" -Dexec.args="install"'
+               // bat 'mvn exec:java -e -Dexec.mainClass="com.microsoft.playwright.CLI" -Dexec.args="install"'
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Build'
-                bat 'mvn clean compile'
+                bat 'mvn clean compile install'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Test'
-                //bat 'mvn test'
+                bat 'mvn clean test'
                 //junit '**/target/*.xml'
-                bat "mvn install -Dtest=JunitRunner -Denv='${ENVIRONMENT}' -Dtestplan='${TestPlan}' -Dcucumber.options='${CucumberTag}'"
+                //bat "mvn install -Dtest=JunitRunner -Denv='${ENVIRONMENT}' -Dtestplan='${TestPlan}' -Dcucumber.options='${CucumberTag}'"
             }
         }
     }
