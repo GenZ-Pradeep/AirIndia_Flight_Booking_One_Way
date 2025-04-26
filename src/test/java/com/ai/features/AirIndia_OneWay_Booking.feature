@@ -1,5 +1,6 @@
 Feature: Book a one-way flight on AirIndia.com
 
+  tags="@smokeTest"
   Scenario: User books a one-way flight
 
     Given the user is on the Air India homepage
