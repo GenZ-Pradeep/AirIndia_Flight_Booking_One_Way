@@ -6,7 +6,8 @@ import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.Cucumber;
 
 @RunWith(Cucumber.class)  //requires JUnit dependency
-@CucumberOptions(features="src\\test\\java\\com\\ai\\features\\AirIndia_OneWay_Booking.feature",
+@CucumberOptions(
+		features="src\\test\\java\\com\\ai\\features\\AirIndia_OneWay_Booking.feature",
 		glue= {"com.ai.steps"},  //requires Cucumber JUnit dependency
 		monochrome = true,
 		plugin = {"pretty", "html:target/HtmlReports/Html_GS.html",
