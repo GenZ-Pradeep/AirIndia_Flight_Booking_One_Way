@@ -36,7 +36,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test'
-                bat 'mvn clean test'
+                bat 'mvn clean test -Dtest=testRunnerAIOWB'
                 //junit '**/target/*.xml'
                 //bat "mvn install -Dtest=JunitRunner -Denv='${ENVIRONMENT}' -Dtestplan='${TestPlan}' -Dcucumber.options='${CucumberTag}'"
             }
