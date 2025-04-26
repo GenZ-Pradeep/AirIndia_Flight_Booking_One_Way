@@ -36,17 +36,17 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test'
-                bat 'mvn clean test -Dtest=testRunnerAIOWB'
+                bat 'mvn clean test -Dtest=com.ai.steps.testRunnerAIOWB'
                 //junit '**/target/*.xml'
                 //bat "mvn install -Dtest=JunitRunner -Denv='${ENVIRONMENT}' -Dtestplan='${TestPlan}' -Dcucumber.options='${CucumberTag}'"
             }
         }
     }
 
-     post {
-         always {
-             junit '{basedir}/target/surefire-reports/TEST-*.xml'
-
-         }
-     }
+//      post {
+//          always {
+//              junit '{basedir}/target/surefire-reports/TEST-*.xml'
+//
+//          }
+//      }
 }
