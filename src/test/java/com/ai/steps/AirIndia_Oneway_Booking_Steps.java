@@ -1,10 +1,12 @@
 package com.ai.steps;
 
 import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Dialog;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.options.AriaRole;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 import org.junit.Test;
 //import org.testng.Assert;
 
@@ -29,14 +31,26 @@ public void the_user_clicks_on_accept_all_cookies_button() throws InterruptedExc
 
 @And("the user accepts location dialog")
 public void the_User_Blocks_Location_Dialog() {
-//	page.onDialog(dialog -> {
-//		String msg = dialog.message();
-//		System.out.println("Dialog text is: " + msg);
-//		Assert.assertTrue(msg.contains("Know your location"));
-//		//dialog.dismiss();
-//		dialog.accept();
-//	});
+	page.onDialog(dialog -> {
+		String msg = dialog.message();
+		System.out.println("Dialog text is: " + msg);
+		Assert.assertTrue(msg.contains("Know your location"));
+		//dialog.dismiss();
+		dialog.accept();
+	});
 }
+//@And("user accepts location dialog")
+//public void the_User_Blocks_Location_Dialog() {
+//	Dialog dialog = page.waitForEvent(Page.EventType.Dialog, () -> {
+//		// Action that triggers the dialog
+//		page.click("#allowLocationButton"); // <-- trigger inside
+//	});
+//
+//	String msg = dialog.message();
+//	System.out.println("Dialog text is: " + msg);
+//	Assert.assertTrue(msg.contains("Know your location"));
+//	dialog.accept();
+//}
 
 @When("the user selects One Way trip type")
 public void the_user_selects_one_way_trip_type() throws InterruptedException {

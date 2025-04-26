@@ -8,6 +8,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.junit.Test;
 //import org.testng.Assert;
 
@@ -30,13 +31,13 @@ public void the_user_clicks_on_accept_all_cookies_button() throws InterruptedExc
 
 @And("user accepts location dialog")
 public void the_User_Blocks_Location_Dialog() {
-//	page.onDialog(dialog -> {
-//		String msg = dialog.message();
-//		System.out.println("Dialog text is: " + msg);
-//		Assert.assertTrue(msg.contains("Know your location"));
-//		//dialog.dismiss();
-//		dialog.accept();
-//	});
+	page.onDialog(dialog -> {
+		String msg = dialog.message();
+		System.out.println("Dialog text is: " + msg);
+		Assert.assertTrue(msg.contains("Know your location"));
+		//dialog.dismiss();
+		dialog.accept();
+	});
 }
 
 @When("^user selects (.*) trip type$")
