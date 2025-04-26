@@ -37,6 +37,8 @@ pipeline {
             steps {
                 echo 'Test'
                 bat 'mvn test'
+                 bat 'make check || true'
+                 junit '**/target/*.xml'
             }
         }
     }
